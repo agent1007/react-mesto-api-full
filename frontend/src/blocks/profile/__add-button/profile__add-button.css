@@ -1,0 +1,27 @@
+.profile__add-button {
+    width: 150px;
+    height: 50px;
+    margin-right: 0;
+    align-self: center;
+    border: 2px solid #FFFFFF;
+    box-sizing: border-box;
+    border-radius: 2px;
+    background-color: #000000;
+    background: url(../../../images/VectorAddButton.svg) no-repeat center;
+    background-size: 22px 22px;
+    cursor: pointer;
+    outline: none;
+}
+
+.profile__add-button:hover {
+    opacity: 0.6;
+    transition: 1s linear;
+}
+
+@media screen and (max-width: 767px) { 
+    .profile__add-button {
+        width: 282px;
+        margin: 0 auto;
+        background-size: 16px 16px;
+    }
+}

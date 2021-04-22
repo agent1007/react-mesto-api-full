@@ -1,0 +1,11 @@
+.element__like-numbers {
+    margin-top: 5px;
+    margin-left: 5px;
+    width: 10px;
+    height: 13px;
+    border: none;
+    display: flex;
+    align-items: center;
+    outline: none;
+    background-color: white;
+}

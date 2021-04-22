@@ -1,0 +1,26 @@
+.profile__avatar {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    cursor: pointer;
+    background-image: url(../../../images/VectorEditCover.svg);
+}
+
+
+
+.profile__avatar:hover {
+    opacity: 0.3;
+    background-image: url(../../../images/VectorEditCover.svg);
+   
+    
+    
+    
+    
+}
+
+@media screen and (max-width: 767px) { 
+    .profile__avatar {
+        margin: auto;
+    }
+}

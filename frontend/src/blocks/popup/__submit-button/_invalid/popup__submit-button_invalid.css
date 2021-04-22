@@ -1,0 +1,8 @@
+.popup__submit-button_invalid {
+    opacity: 20%;
+}
+
+.popup__submit-button_invalid:hover {
+    opacity: 0.2;
+    transition: none;
+}

@@ -1,0 +1,7 @@
+.header__burger-menu {
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+    cursor: pointer;
+    background-image: url(../../../images/burger.svg);
+}

@@ -1,0 +1,15 @@
+.popup__container-add-card {
+    margin: auto;
+    max-width: 430px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    position: relative;
+}
+
+@media screen and (max-width: 767px) {    
+    .popup__container-add-card {
+        align-self: center;
+        max-width: 240px;
+    }
+}

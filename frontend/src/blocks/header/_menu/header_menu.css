@@ -1,0 +1,9 @@
+@media screen and (max-width: 767px) { 
+    .header_menu {
+        flex-direction: column-reverse;
+        margin: 0 0 17px;
+        padding-bottom: 31.6px;
+        padding-top: 28px;
+
+    }
+}

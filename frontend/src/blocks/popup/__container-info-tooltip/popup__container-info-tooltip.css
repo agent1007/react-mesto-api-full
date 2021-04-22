@@ -1,0 +1,16 @@
+.popup__container-info-tooltip {
+    width: 430px;
+    height: 330px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+@media screen and (max-width: 767px) {    
+    .popup__container-info-tooltip {
+        
+        max-width: 280px;
+        max-height: 308px;
+    }
+}

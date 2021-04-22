@@ -1,0 +1,13 @@
+.header__container {
+    display: flex;
+    align-items: center;
+}
+
+@media screen and (max-width: 767px) { 
+    .header__container {
+        flex-direction: column;
+        margin-bottom: 27px;
+        border-bottom: 1px solid rgba(84, 84, 84, 0.7);
+        padding-bottom: 40px;
+    }
+}

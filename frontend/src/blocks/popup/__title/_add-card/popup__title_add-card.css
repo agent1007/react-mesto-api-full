@@ -1,0 +1,9 @@
+@media screen and (max-width: 767px) {    
+    .popup__title_add-card {
+        max-width: 200px;
+        margin: 30px 20px 36px;
+        font-weight: 900;
+        font-size: 18px;
+        line-height: 22px;
+    }
+}
