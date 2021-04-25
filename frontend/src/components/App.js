@@ -35,9 +35,7 @@ function App() {
   function handleEditAvatarClick () {
     setIsEditAvatarPopupOpen(true);
   }
-  // function handleInfoTooltip () {
-  //   setIsInfoTooltip(true);
-  // }
+
   function closeAllPopups() {
     setIsEditProfilePopupOpen(false);
     setIsAddPlacePopupOpen(false);
@@ -94,27 +92,6 @@ function App() {
         .catch(err => console.log(err))
     } 
 
-    useEffect( () => {
-      api.getUserData()
-        .then(data => {
-          setCurrentUser(data);
-        })
-      .catch(err => console.log(err))  
-      
-    },[])
-
-    useEffect( () => {
-      api.getInitialCards()
-        .then(res => {
-          console.log(res)
-          setCards(res)
-        })
-        .catch(err => console.log(err))
-      
-    }, [])
-
-
-
     const initialData = {
       email: '',
       password: ''
@@ -147,19 +124,6 @@ function App() {
       tokenCheck();
     }, [tokenCheck])
 
-    // useEffect(() => {
-    //   if(loggedIn) {
-    //     api.getUserData()
-    //     .then((res) => {
-    //       setCurrentUser(res)
-    //     })
-    //     .catch((err) => {
-    //       console.log(err)
-    //     })
-    //   }
-    // }, [loggedIn])
-
-
     const handleRegister = ({email, password}) => {
       return auth.register(email, password)
       .then((res) => {
@@ -171,18 +135,19 @@ function App() {
       .catch(err => {
         setIsInfoTooltip(true);
         history.push('/signup');
-        console.log(err)})
+        setSuccess(false);})
     }
 
     const handleLogin = ({ email, password }) => {
       return auth.login(email, password).then(res => {
         if (!res || res.statusCode === 400) throw new Error('Что-то пошло не так');
         if (res.token) {
-          setLoggedIn(true);
           setData({email})
           localStorage.setItem('jwt', res.token);
+          setLoggedIn(true);
         };
       });
+      
     }
 
     const handleSignOut = () => {
@@ -192,7 +157,37 @@ function App() {
       history.push('/signin');
     }
 
+    useEffect( () => {
+      if(loggedIn) {
+        api.getUserData()
+        .then(data => {
+          setCurrentUser(data);
+        })
+      .catch(err => console.log(err))  
+      }
+    },[loggedIn])
 
+    useEffect( () => {
+      if(loggedIn) {
+        api.getInitialCards()
+        .then(res => {
+          setCards(res)
+        })
+        .catch(err => console.log(err))
+      }
+    }, [loggedIn])
+
+    // useEffect(() => {
+    //   if(loggedIn) {
+    //     api.getUserData()
+    //     .then((res) => {
+    //       setCurrentUser(res)
+    //     })
+    //     .catch((err) => {
+    //       console.log(err)
+    //     })
+    //   }
+    // }, [loggedIn])
   return (
     
     <div className="App">

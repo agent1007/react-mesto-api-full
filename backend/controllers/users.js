@@ -7,6 +7,7 @@ const NotFoundError = require('../errors/not-found-error');
 const ConflictingRequestError = require('../errors/conflicting-request-error');
 
 const { JWT_SECRET } = process.env;
+console.log(JWT_SECRET);
 
 module.exports.getUsers = (req, res, next) => {
   User.find({}).then((users) => res.send(users))
@@ -133,7 +134,7 @@ module.exports.login = (req, res, next) => {
       if (err.name === 'ValidationError') {
         throw new UnauthorizedError('Переданы некорректные данные при авторизации пользователя.');
       } else {
-        next(new UnauthorizedError('Переданы некорректные данные при авторизации пользователя.'));
+        next(err);
       }
     });
 };

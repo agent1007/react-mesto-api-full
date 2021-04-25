@@ -1,6 +1,7 @@
 const { JWT_SECRET } = process.env;
 const jwt = require('jsonwebtoken');
 const UnauthorizedError = require('../errors/unauthorized-error');
+const NotFoundError = require('../errors/not-found-error');
 
 module.exports = (req, res, next) => {
   const { authorization } = req.headers;
@@ -13,7 +14,7 @@ module.exports = (req, res, next) => {
     try {
       payload = jwt.verify(token, JWT_SECRET);
     } catch (err) {
-      throw new UnauthorizedError('Недостаточно прав.');
+      throw new NotFoundError('Вы не авторизованы.');
     }
     req.user = payload;
   } catch (err) {
