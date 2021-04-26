@@ -1,7 +1,5 @@
 require('dotenv').config();
 
-console.log(process.env.NODE_ENV);
-
 const express = require('express');
 
 const { PORT = 3000 } = process.env;
@@ -15,6 +13,12 @@ const app = express();
 
 const NotFoundError = require('./errors/not-found-error');
 
+const { createUser, login } = require('./controllers/users');
+
+const { validateLogin, validateRegistration } = require('./middlewares/validatons');
+
+const auth = require('./middlewares/auth');
+
 app.use(cors());
 app.use(bodyParser.json());
 
@@ -27,19 +31,27 @@ mongoose.connect('mongodb://localhost:27017/mestodb',
     autoIndex: true,
   });
 
-app.use('/', require('./routes/users'));
+app.post('/signin', validateLogin, login);
+app.post('/signup', validateRegistration, createUser);
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
+app.use(auth);
+app.use('/users', require('./routes/users'));
 
 app.use('/cards', require('./routes/cards'));
 
-app.use('/', () => {
-  throw new NotFoundError('Ресурс по указанному маршруту не найден.');
+app.use((req, res, next) => {
+  next(new NotFoundError(`Запрашиваемый ресурс по адресу '${req.path}' не найден`));
 });
+
 app.use(errorLogger);
 app.use(errors());
 
 app.use((err, req, res, next) => {
   const { statusCode = 500, message } = err;
-  console.log(err);
   res
     .status(statusCode)
     .send({

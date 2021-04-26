@@ -1,43 +1,28 @@
 const router = require('express').Router();
-const express = require('express');
-
-const app = express();
 
 const {
-  getUsers, getUserById, createUser, updateUser, updateAvatar, login, getCurrentUser,
+  getUsers, getUserById, updateUser, updateAvatar, getCurrentUser,
 } = require('../controllers/users');
 const auth = require('../middlewares/auth');
 
 const {
   validateGetUsers,
   validateGetUserById,
-  validateLogin,
-  validateRegistration,
   validateUpdateUserAvatar,
   validateUpdateUser,
   validateGetCurrentUser,
 } = require('../middlewares/validatons');
 
-app.get('/crash-test', () => {
-  setTimeout(() => {
-    throw new Error('Сервер сейчас упадёт');
-  }, 0);
-});
-
-router.post('/signin', validateLogin, login);
-
-router.post('/signup', validateRegistration, createUser);
-
 router.use(auth);
 
-router.get('/users', validateGetUsers, getUsers);
+router.get('/', validateGetUsers, getUsers);
 
-router.get('/users/me', validateGetCurrentUser, getCurrentUser);
+router.get('/me', validateGetCurrentUser, getCurrentUser);
 
-router.patch('/users/me', validateUpdateUser, updateUser);
+router.patch('/me', validateUpdateUser, updateUser);
 
-router.patch('/users/me/avatar', validateUpdateUserAvatar, updateAvatar);
+router.patch('/me/avatar', validateUpdateUserAvatar, updateAvatar);
 
-router.get('/users/:userId', validateGetUserById, getUserById);
+router.get('/:userId', validateGetUserById, getUserById);
 
 module.exports = router;
