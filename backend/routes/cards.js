@@ -15,9 +15,9 @@ router.post('/', validateCreateCard, createCard);
 
 router.delete('/:cardId', validateDeleteCard, deleteCard);
 
-router.put('/likes/:cardId', validateDeleteCard, likeCard);
+router.put('/:cardId/likes', validateDeleteCard, likeCard);
 
-router.delete('/likes/:cardId', validateDeleteCard, dislikeCard);
+router.delete('/:cardId/likes', validateDeleteCard, dislikeCard);
 
 router.use((req, res, next) => {
   next(new NotFoundError('Ресурс по указанному маршруту не найден.'));

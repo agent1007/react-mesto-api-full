@@ -55,7 +55,7 @@ class Api {
     
 
     addCardLike(id){
-      return fetch(`${this._baseUrl}/cards/likes/${id}`, {
+      return fetch(`${this._baseUrl}/cards/${id}/likes`, {
           method: 'PUT',
           headers: {
               authorization: `Bearer ${localStorage.getItem('jwt')}`,
@@ -65,7 +65,7 @@ class Api {
     }
 
     deleteCardLike(id){
-      return fetch(`${this._baseUrl}/cards/likes/${id}`, {
+      return fetch(`${this._baseUrl}/cards/${id}/likes`, {
           method: 'DELETE',
           headers: {
               authorization: `Bearer ${localStorage.getItem('jwt')}`,
