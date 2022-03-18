@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/react-mesto-api-full/frontend/static/css/main.f7156e88.chunk.css",
+    "main.js": "/react-mesto-api-full/frontend/static/js/main.b9dac011.chunk.js",
+    "main.js.map": "/react-mesto-api-full/frontend/static/js/main.b9dac011.chunk.js.map",
+    "runtime-main.js": "/react-mesto-api-full/frontend/static/js/runtime-main.6e24100e.js",
+    "runtime-main.js.map": "/react-mesto-api-full/frontend/static/js/runtime-main.6e24100e.js.map",
+    "static/js/2.e4539b86.chunk.js": "/react-mesto-api-full/frontend/static/js/2.e4539b86.chunk.js",
+    "static/js/2.e4539b86.chunk.js.map": "/react-mesto-api-full/frontend/static/js/2.e4539b86.chunk.js.map",
+    "static/js/3.16005fb4.chunk.js": "/react-mesto-api-full/frontend/static/js/3.16005fb4.chunk.js",
+    "static/js/3.16005fb4.chunk.js.map": "/react-mesto-api-full/frontend/static/js/3.16005fb4.chunk.js.map",
+    "index.html": "/react-mesto-api-full/frontend/index.html",
+    "static/css/main.f7156e88.chunk.css.map": "/react-mesto-api-full/frontend/static/css/main.f7156e88.chunk.css.map",
+    "static/js/2.e4539b86.chunk.js.LICENSE.txt": "/react-mesto-api-full/frontend/static/js/2.e4539b86.chunk.js.LICENSE.txt",
+    "static/media/InfoTooltipFault.7c6a020b.svg": "/react-mesto-api-full/frontend/static/media/InfoTooltipFault.7c6a020b.svg",
+    "static/media/InfoTooltipOk.1b6082f8.svg": "/react-mesto-api-full/frontend/static/media/InfoTooltipOk.1b6082f8.svg",
+    "static/media/index.css": "/react-mesto-api-full/frontend/static/media/vectorDelete.a274c87c.svg",
+    "static/media/logo.03b78ada.svg": "/react-mesto-api-full/frontend/static/media/logo.03b78ada.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6e24100e.js",
+    "static/js/2.e4539b86.chunk.js",
+    "static/css/main.f7156e88.chunk.css",
+    "static/js/main.b9dac011.chunk.js"
+  ]
+}
